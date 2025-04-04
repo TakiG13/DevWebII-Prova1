@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Alterações</title>
+</head>
+<body>
+    <h1>Histórico de Alterações</h1>
+    {% if historico %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Ação</th>
+                    <th>Tabela Afetada</th>
+                    <th>ID Afetado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in historico %}
+                    <tr>
+                        <td>{{ item[4] }}</td> <!-- Data -->
+                        <td>{{ item[1] }}</td> <!-- Tipo de Ação -->
+                        <td>{{ item[2] }}</td> <!-- Tabela Afetada -->
+                        <td>{{ item[3] }}</td> <!-- ID Afetado -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhum histórico encontrado.</p>
+    {% endif %}
+</body>
+</html>

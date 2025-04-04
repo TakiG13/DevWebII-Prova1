@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo ao Sistema de Gerenciamento</title>
+</head>
+<body>
+    <h1>Bem-vindo ao Sistema de Gerenciamento de Produtos e Usuários!</h1>
+    <p>Escolha uma opção abaixo:</p>
+    <ul>
+        <li><a href="{{ url_for('usuario.criar_usuario') }}">Cadastrar Usuário</a></li>
+        <li><a href="{{ url_for('produto.cadastro_produto') }}">Cadastrar Produto</a></li>
+        <li><a href="{{ url_for('usuario.lista_usuarios') }}">Gerenciar Usuários</a></li>
+        <li><a href="{{ url_for('produto.lista_produtos') }}">Gerenciar Produtos</a></li>
+        <li><a href="{{ url_for('produto.historico') }}">Histórico de Alterações</a></li>
+    </ul>
+</body>
+</html>

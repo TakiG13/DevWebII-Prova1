@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuários</title>
+</head>
+<body>
+    <h1>Lista de Usuários</h1>
+
+    <!-- Formulário de busca -->
+    <form action="{{ url_for('usuario.lista_usuarios') }}" method="get">
+        <label for="usuario_id">Buscar Usuário por ID:</label>
+        <input type="number" id="usuario_id" name="usuario_id" placeholder="Digite o ID do usuário">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario[0] }}</td> <!-- ID -->
+                    <td>{{ usuario[1] }}</td> <!-- Nome -->
+                    <td>{{ usuario[2] }}</td> <!-- Email -->
+                    <td>
+                        <form action="{{ url_for('usuario.excluir_usuario', usuario_id=usuario[0]) }}" method="post" style="display:inline;">
+                            <button type="submit">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
